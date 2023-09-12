@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColiseumTask", "ColiseumTask\ColiseumTask.csproj", "{83834823-06C5-4742-832E-D85B47A50BB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strategy", "Strategy\Strategy.csproj", "{66314117-FCF3-499E-A8BF-460065A1CD37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83834823-06C5-4742-832E-D85B47A50BB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83834823-06C5-4742-832E-D85B47A50BB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83834823-06C5-4742-832E-D85B47A50BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83834823-06C5-4742-832E-D85B47A50BB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66314117-FCF3-499E-A8BF-460065A1CD37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66314117-FCF3-499E-A8BF-460065A1CD37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66314117-FCF3-499E-A8BF-460065A1CD37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66314117-FCF3-499E-A8BF-460065A1CD37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
