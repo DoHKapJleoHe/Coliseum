@@ -10,4 +10,10 @@ public class Card
         _color = col;
         _number = num;
     }
+
+    public override string ToString()
+    {
+        var s = "(" + _number + " " + _color + ")";
+        return s;
+    }
 }
