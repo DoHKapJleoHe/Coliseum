@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColiseumTask", "ColiseumTas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strategy", "Strategy\Strategy.csproj", "{66314117-FCF3-499E-A8BF-460065A1CD37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardLib", "CardLib\CardLib.csproj", "{40E93573-0850-4DD9-872C-F61C19AA3283}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{66314117-FCF3-499E-A8BF-460065A1CD37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66314117-FCF3-499E-A8BF-460065A1CD37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66314117-FCF3-499E-A8BF-460065A1CD37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40E93573-0850-4DD9-872C-F61C19AA3283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40E93573-0850-4DD9-872C-F61C19AA3283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40E93573-0850-4DD9-872C-F61C19AA3283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40E93573-0850-4DD9-872C-F61C19AA3283}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

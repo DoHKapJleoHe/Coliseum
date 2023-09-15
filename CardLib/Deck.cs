@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace ColiseumTask;
+namespace CardLib;
 
 public class Deck
 {
@@ -25,7 +25,7 @@ public class Deck
         ShuffleDeck();
     }
 
-    private void ShuffleDeck()
+    public void ShuffleDeck()
     {
         var rnd = new Random();
         var num = _deck.Length;
@@ -37,6 +37,11 @@ public class Deck
         }
     }
 
+    public Card[] GetCardsArray()
+    {
+        return _deck;
+    }
+
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
@@ -46,6 +51,6 @@ public class Deck
             sb.AppendLine(card.ToString());
         }
     
-        return sb.ToString();
+        return sb.ToString(); 
     }
 }

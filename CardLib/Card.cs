@@ -1,4 +1,4 @@
-namespace ColiseumTask;
+namespace CardLib;
 
 public class Card
 {
@@ -9,6 +9,11 @@ public class Card
     {
         _color = col;
         _number = num;
+    }
+
+    public Color GetColor()
+    {
+        return _color;
     }
 
     public override string ToString()

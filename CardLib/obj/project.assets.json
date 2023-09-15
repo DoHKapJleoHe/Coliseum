@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
-      "CardLib/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "compile": {
-          "bin/placeholder/CardLib.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/CardLib.dll": {}
-        }
-      }
-    }
+    "net7.0": {}
   },
-  "libraries": {
-    "CardLib/1.0.0": {
-      "type": "project",
-      "path": "../CardLib/CardLib.csproj",
-      "msbuildProject": "../CardLib/CardLib.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net7.0": [
-      "CardLib >= 1.0.0"
-    ]
+    "net7.0": []
   },
   "packageFolders": {
     "C:\\Users\\eduar\\.nuget\\packages\\": {}
@@ -32,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eduar\\Desktop\\Проекты\\C#\\Coliseum\\ColiseumTask\\Strategy\\Strategy.csproj",
-      "projectName": "Strategy",
-      "projectPath": "C:\\Users\\eduar\\Desktop\\Проекты\\C#\\Coliseum\\ColiseumTask\\Strategy\\Strategy.csproj",
+      "projectUniqueName": "C:\\Users\\eduar\\Desktop\\Проекты\\C#\\Coliseum\\ColiseumTask\\CardLib\\CardLib.csproj",
+      "projectName": "CardLib",
+      "projectPath": "C:\\Users\\eduar\\Desktop\\Проекты\\C#\\Coliseum\\ColiseumTask\\CardLib\\CardLib.csproj",
       "packagesPath": "C:\\Users\\eduar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eduar\\Desktop\\Проекты\\C#\\Coliseum\\ColiseumTask\\Strategy\\obj\\",
+      "outputPath": "C:\\Users\\eduar\\Desktop\\Проекты\\C#\\Coliseum\\ColiseumTask\\CardLib\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\eduar\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -50,11 +31,7 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {
-            "C:\\Users\\eduar\\Desktop\\Проекты\\C#\\Coliseum\\ColiseumTask\\CardLib\\CardLib.csproj": {
-              "projectPath": "C:\\Users\\eduar\\Desktop\\Проекты\\C#\\Coliseum\\ColiseumTask\\CardLib\\CardLib.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

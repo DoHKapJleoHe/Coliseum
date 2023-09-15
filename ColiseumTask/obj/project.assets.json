@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "CardLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/CardLib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CardLib.dll": {}
+        }
+      },
+      "Strategy/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "CardLib": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Strategy.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Strategy.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "CardLib/1.0.0": {
+      "type": "project",
+      "path": "../CardLib/CardLib.csproj",
+      "msbuildProject": "../CardLib/CardLib.csproj"
+    },
+    "Strategy/1.0.0": {
+      "type": "project",
+      "path": "../Strategy/Strategy.csproj",
+      "msbuildProject": "../Strategy/Strategy.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "CardLib >= 1.0.0",
+      "Strategy >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\eduar\\.nuget\\packages\\": {}
@@ -31,7 +69,14 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\eduar\\Desktop\\Проекты\\C#\\Coliseum\\ColiseumTask\\CardLib\\CardLib.csproj": {
+              "projectPath": "C:\\Users\\eduar\\Desktop\\Проекты\\C#\\Coliseum\\ColiseumTask\\CardLib\\CardLib.csproj"
+            },
+            "C:\\Users\\eduar\\Desktop\\Проекты\\C#\\Coliseum\\ColiseumTask\\Strategy\\Strategy.csproj": {
+              "projectPath": "C:\\Users\\eduar\\Desktop\\Проекты\\C#\\Coliseum\\ColiseumTask\\Strategy\\Strategy.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
