@@ -9,7 +9,15 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CardLib\CardLib.csproj" />
+      <ProjectReference Include="..\DeckShuffler\DeckShuffler.csproj" />
+      <ProjectReference Include="..\PlayersLib\PlayersLib.csproj" />
+      <ProjectReference Include="..\ExperimentWorkerLib\ExperimentWorkerLib.csproj" />
       <ProjectReference Include="..\Strategy\Strategy.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0-rc.1.23419.4" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0-rc.1.23419.4" />
     </ItemGroup>
 
 </Project>

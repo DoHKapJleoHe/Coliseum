@@ -21,20 +21,6 @@ public class Deck
             else
                 _deck[i] = new Card(i + 1, Color.Black);
         }
-        
-        ShuffleDeck();
-    }
-
-    public void ShuffleDeck()
-    {
-        var rnd = new Random();
-        var num = _deck.Length;
-
-        while (num > 1)
-        {
-            var k = rnd.Next(num--);
-            (_deck[num], _deck[k]) = (_deck[k], _deck[num]);
-        }
     }
 
     public Card[] GetCardsArray()

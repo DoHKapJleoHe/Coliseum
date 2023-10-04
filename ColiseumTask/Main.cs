@@ -1,34 +1,32 @@
-﻿using CardLib;
-using Strategy;
+﻿using AbstractPlayer;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using DeckShuffler;
+using ElonLib;
+using ExperimentWorker;
+using MarkLib;
+using SandboxLib;
 
 namespace ColiseumTask
 {
     class ColiseumTask
     {
-        private const int IterCount = 1_000_000;
-        public static void Main()
+        public static void Main(string[] args)
         {
-            var deck = new Deck();
-            
-            //Console.WriteLine(deck.ToString());
-            var s = new PickStrategy();
-            Card[] elonDeck;
-            Card[] markDeck;
-            var winCount = 0;
-            
-            for (var i = 0; i < IterCount; i++)
-            {
-                elonDeck = deck.GetCardsArray().Take(deck.GetCardsArray().Length / 2).ToArray();
-                markDeck = deck.GetCardsArray().Skip(deck.GetCardsArray().Length / 2).ToArray();
+            CreateHostBuilder(args).Build().Run();
+        }
 
-                if (elonDeck[s.Pick(markDeck)].GetColor() == markDeck[s.Pick(elonDeck)].GetColor())
-                    winCount++;
-
-                deck.ShuffleDeck();
-            }
-
-            float res = ((float)winCount / IterCount) * 100;
-            Console.WriteLine(res);
+        private static IHostBuilder CreateHostBuilder(string[] args)
+        {
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureServices((hostContext, services) =>
+                {
+                    services.AddHostedService<Worker>();
+                    services.AddScoped<IDeckShuffler, Shuffler>();
+                    services.AddScoped<Sandbox>();
+                    services.AddScoped<Player, Elon>();
+                    services.AddScoped<Player, Mark>();
+                });
         }
     }    
 }
