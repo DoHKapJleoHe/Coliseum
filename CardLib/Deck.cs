@@ -12,6 +12,11 @@ public class Deck
         CreateDeck();
     }
 
+    public Deck(Card[] deck)
+    {
+        _deck = deck;
+    }
+
     private void CreateDeck()
     {
         for (var i = 0; i < 36; i++)
