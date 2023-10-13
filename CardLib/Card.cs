@@ -11,9 +11,16 @@ public class Card
         _number = num;
     }
 
+    public Card() {}
+    
     public Color GetColor()
     {
         return _color;
+    }
+
+    public int GetNumber()
+    {
+        return _number;
     }
 
     public override string ToString()

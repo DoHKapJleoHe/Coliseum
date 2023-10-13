@@ -6,7 +6,7 @@ namespace ExperimentWorker;
 
 public class Worker : IHostedService
 {
-    private const int IterCount = 1_000_000;
+    private const int IterCount = 1;
     private Sandbox _sandbox;
 
     public Worker(Sandbox sandbox)

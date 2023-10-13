@@ -1,9 +1,10 @@
-﻿using CardLib;
+﻿using AbstractPlayer;
+using CardLib;
 using Strategy;
 
 namespace ElonLib;
 
-public class Elon : AbstractPlayer.Player
+public class Elon : Player
 {
     public override string Name => "Elon";
 

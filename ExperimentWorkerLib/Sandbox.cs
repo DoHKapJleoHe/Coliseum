@@ -1,5 +1,7 @@
-﻿using AbstractPlayer;
+﻿using System.Runtime.InteropServices.JavaScript;
+using AbstractPlayer;
 using CardLib;
+using DbLib;
 using DeckShuffler;
 using Microsoft.Extensions.Logging;
 
@@ -7,6 +9,7 @@ namespace SandboxLib;
 
 public class Sandbox
 {
+    private readonly DeckDbContext _db = new DeckDbContext();
     private readonly IDeckShuffler _deckShuffler;
     private readonly Player _elon;
     private readonly Player _mark;
@@ -25,6 +28,12 @@ public class Sandbox
     {
         Card[] cardsArray = deck.GetCardsArray();
         _deckShuffler.Shuffle(ref cardsArray);
+        
+        _db.Add(new DeckEntity
+        {
+            Deck = new Deck(cardsArray).ToString()
+        });
+        _db.SaveChanges();
         
         Card[] elonDeck = cardsArray.Take(cardsArray.Length / 2).ToArray();
         Card[] markDeck = cardsArray.Skip(cardsArray.Length / 2).ToArray();

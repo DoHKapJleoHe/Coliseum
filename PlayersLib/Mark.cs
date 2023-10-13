@@ -1,8 +1,9 @@
-﻿using CardLib;
+﻿using AbstractPlayer;
+using CardLib;
 
 namespace MarkLib;
 
-public class Mark : AbstractPlayer.Player
+public class Mark : Player
 {
     public override string Name => "Mark";
 
