@@ -1,7 +1,9 @@
 using AbstractPlayer;
 using CardLib;
-
+using DbLib;
 using DeckShuffler;
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Moq;
 using SandboxLib;
@@ -14,6 +16,7 @@ public class ExperimentsTest
     private Mock<IDeckShuffler> _deckShufflerMoq;
     private Mock<Player> _elonMock;
     private Mock<Player> _markMock;
+    private IReaderWriter _readerWriter;
     
     [SetUp]
     public void SetUp()
@@ -21,6 +24,17 @@ public class ExperimentsTest
         _deckShufflerMoq = new Mock<IDeckShuffler>();
         _elonMock = new Mock<Player>();
         _markMock = new Mock<Player>();
+        
+        /*var _connection = new SqliteConnection("DataSource=:memory:");
+        _connection.Open();
+        
+        var options = new DbContextOptionsBuilder<DeckDbContext>()
+            .UseSqlite(_connection)
+            .Options;
+        
+        var _testDbContext = new DeckDbContext(options);
+        _testDbContext.Database.EnsureCreated();*/
+        _readerWriter = new ReaderWriter(null!);
 
         var deck = new Deck().GetCardsArray();
         var elonHalf = deck.Take(deck.Length / 2).ToArray();
@@ -37,6 +51,7 @@ public class ExperimentsTest
         var sandbox = new Sandbox(
             _deckShufflerMoq.Object,
             new [] {_markMock.Object, _elonMock.Object},
+            _readerWriter,
             Mock.Of<ILogger<Sandbox>>()
             );
 
@@ -53,6 +68,7 @@ public class ExperimentsTest
         var sandbox = new Sandbox(
             _deckShufflerMoq.Object,
             new [] {_markMock.Object, _elonMock.Object},
+            _readerWriter,
             Mock.Of<ILogger<Sandbox>>()
             );
 

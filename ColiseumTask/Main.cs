@@ -1,10 +1,12 @@
 ﻿using AbstractPlayer;
+using DbLib;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using DeckShuffler;
 using ElonLib;
 using ExperimentWorker;
 using MarkLib;
+using Microsoft.EntityFrameworkCore;
 using SandboxLib;
 
 namespace ColiseumTask
@@ -26,6 +28,8 @@ namespace ColiseumTask
                     services.AddScoped<Sandbox>();
                     services.AddScoped<Player, Elon>();
                     services.AddScoped<Player, Mark>();
+                    services.AddDbContextFactory<DeckDbContext>(options => options.UseSqlite($"Data Source=decks.db"));
+                    services.AddScoped<IReaderWriter, ReaderWriter>();
                 });
         }
     }    

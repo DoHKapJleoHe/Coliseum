@@ -9,16 +9,18 @@ public class DeckEntity
 {
     [Key]
     public int Id { get; set; }
-
-    public string Deck { get; set; }
-
+    public List<CardEntity> Deck { get; set; }
 }
 
-[Table("Users")]
-public class UserEntity
+[Table("Cards")]
+public class CardEntity
 {
     [Key] 
     public int Id { get; set; }
-
-    public string Name { get; set; }
+    public int Number { get; set; }
+    public string Color { get; set; }
+    
+    [ForeignKey("Deck")]
+    public int DeckId { get; set; }
+    public DeckEntity Deck { get; set; }
 }

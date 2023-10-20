@@ -1,4 +1,5 @@
 ﻿using CardLib;
+using DbLib;
 using Microsoft.Extensions.Hosting;
 using SandboxLib;
 
@@ -6,12 +7,13 @@ namespace ExperimentWorker;
 
 public class Worker : IHostedService
 {
-    private const int IterCount = 1;
+    private const int IterCount = 100;
     private Sandbox _sandbox;
-
-    public Worker(Sandbox sandbox)
+    private readonly IReaderWriter _readerWriter;
+    public Worker(Sandbox sandbox, IReaderWriter readerWriter)
     {
         _sandbox = sandbox;
+        _readerWriter = readerWriter;
     }
 
     public Task StartAsync(CancellationToken cancellationToken)
@@ -25,6 +27,17 @@ public class Worker : IHostedService
         }
         
         float res = ((float)winCount / IterCount) * 100;
+        Console.WriteLine(res);
+
+        winCount = 0;
+        var decks = _readerWriter.ReadFromDatabase();
+        foreach (var deck in decks)
+        {
+            if (_sandbox.DoOneExperimentNoShuffle(deck))
+                winCount++;
+        }
+        
+        res = ((float)winCount / IterCount) * 100;
         Console.WriteLine(res);
         
         return Task.CompletedTask;
