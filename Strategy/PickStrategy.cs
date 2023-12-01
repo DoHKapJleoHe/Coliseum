@@ -17,7 +17,7 @@ public class PickStrategy : ICardPickStrategy
         {
             foreach (var card in deck)
             {
-                if (card.GetColor() == Color.Black)
+                if (card.Color == Color.Black)
                 {
                     max++;
                 }
@@ -29,7 +29,7 @@ public class PickStrategy : ICardPickStrategy
         {
             foreach (var card in deck)
             {
-                if (card.GetColor() == Color.Red)
+                if (card.Color == Color.Red)
                 {
                     max++;
                 }

@@ -20,14 +20,36 @@ namespace ColiseumTask
 
         private static IHostBuilder CreateHostBuilder(string[] args)
         {
+            var action = " ";
+            switch (args[0])
+            {
+                case "generate":
+                {
+                    action = "generate";
+                    break;
+                }
+                case "use":
+                {
+                    action = "use";
+                    break;
+                }
+                default:
+                {
+                    Console.WriteLine("Not enough arguments!");
+                    break;
+                }
+            }
+
             return Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddSingleton(action);
                     services.AddHostedService<Worker>();
                     services.AddScoped<IDeckShuffler, Shuffler>();
                     services.AddScoped<Sandbox>();
                     services.AddScoped<Player, Elon>();
                     services.AddScoped<Player, Mark>();
+                    services.AddScoped<IPlayerAsker, PlayerAsker>();
                     services.AddDbContextFactory<DeckDbContext>(options => options.UseSqlite($"Data Source=decks.db"));
                     services.AddScoped<IReaderWriter, ReaderWriter>();
                 });

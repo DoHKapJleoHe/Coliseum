@@ -2,30 +2,20 @@ namespace CardLib;
 
 public class Card
 {
-    private int _number;
-    private Color _color;
-    
+    public int Number { get; set; }
+    public Color Color { get; set; }
+
     public Card(int num, Color col)
     {
-        _color = col;
-        _number = num;
+        Color = col;
+        Number = num;
     }
 
     public Card() {}
-    
-    public Color GetColor()
-    {
-        return _color;
-    }
-
-    public int GetNumber()
-    {
-        return _number;
-    }
 
     public override string ToString()
     {
-        var s = "(" + _number + " " + _color + ")";
+        var s = "(" + Number + " " + Color + ")";
         return s;
     }
 }

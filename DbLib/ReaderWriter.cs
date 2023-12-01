@@ -19,12 +19,6 @@ public class ReaderWriter : IReaderWriter
         _db.Database.EnsureCreated();
     }
 
-    /*public ReaderWriter(DeckDbContext dbContext)
-    {
-        _db = dbContext;
-        _db.Database.EnsureCreated();
-    }*/
-
     public void WriteToDatabase(Deck deck)
     {
         List<CardEntity> cardsEntity = new List<CardEntity>();
@@ -32,8 +26,8 @@ public class ReaderWriter : IReaderWriter
         {
             cardsEntity.Add(new CardEntity()
             {
-                Number = card.GetNumber(),
-                Color = card.GetColor().ToString()
+                Number = card.Number,
+                Color = card.Color.ToString()
             });
         }
 

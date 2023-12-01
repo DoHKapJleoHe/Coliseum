@@ -2,6 +2,7 @@ using AbstractPlayer;
 using CardLib;
 using DbLib;
 using DeckShuffler;
+using ExperimentWorker;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -52,6 +53,7 @@ public class ExperimentsTest
             _deckShufflerMoq.Object,
             new [] {_markMock.Object, _elonMock.Object},
             _readerWriter,
+            new PlayerAsker(),
             Mock.Of<ILogger<Sandbox>>()
             );
 
@@ -69,6 +71,7 @@ public class ExperimentsTest
             _deckShufflerMoq.Object,
             new [] {_markMock.Object, _elonMock.Object},
             _readerWriter,
+            new PlayerAsker(),
             Mock.Of<ILogger<Sandbox>>()
             );
 
@@ -76,6 +79,6 @@ public class ExperimentsTest
         var result = sandbox.DoOneExperimentNoShuffle(new Deck(deck));
         
         
-        Assert.That(result, Is.EqualTo(deck[0].GetColor() == deck[18].GetColor()));
+        Assert.That(result, Is.EqualTo(deck[0].Color == deck[18].Color));
     }
 }

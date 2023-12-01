@@ -16,9 +16,9 @@ public class CardsTest
 
         foreach (var card in cards)
         {
-            if (card.GetColor() == Color.Red)
+            if (card.Color == Color.Red)
                 redNum++;
-            if (card.GetColor() == Color.Black)
+            if (card.Color == Color.Black)
                 blackNum++;
         }
 
