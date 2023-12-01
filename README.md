@@ -1,5 +1,4 @@
-# Coliseum
-C# course project.
+# Coliseum: C# course project.
 
 Task:
 Elon Musk and Mark Zuckerberg decided to fight in a duel in the Roman Coliseum. The Gods got angry at them: they grabbed them and locked in two different rooms. They agree to release Mark and Elon if they solve one problem.
