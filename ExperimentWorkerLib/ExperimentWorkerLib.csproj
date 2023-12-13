@@ -14,7 +14,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CardLib\CardLib.csproj" />
-      <ProjectReference Include="..\DbLib\DbLib.csproj" />
       <ProjectReference Include="..\DeckShuffler\DeckShuffler.csproj" />
       <ProjectReference Include="..\PlayersLib\PlayersLib.csproj" />
     </ItemGroup>
