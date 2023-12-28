@@ -13,10 +13,7 @@ public class CardDto
     [JsonRequired]
     public Color Color { get; set; }
     
-    public CardDto()
-    {
-        
-    }
+    public CardDto() { }
     
     public CardDto(Card card)
     {

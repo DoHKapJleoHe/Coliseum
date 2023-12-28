@@ -10,7 +10,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CardLib\CardLib.csproj" />
-      <ProjectReference Include="..\Strategy\Strategy.csproj" />
     </ItemGroup>
 
 </Project>

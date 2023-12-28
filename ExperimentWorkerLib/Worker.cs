@@ -27,7 +27,7 @@ public class Worker : IHostedService
             Console.WriteLine("Generating results!");
             for (int i = 0; i < IterCount; i++)
             {
-                if (_sandbox.DoOneExperiment(new Deck()))
+                if (_sandbox.DoOneExperiment(new Deck(), i).Result)
                     winCount++;
                 
                 Console.WriteLine("Experiments done: " + i);

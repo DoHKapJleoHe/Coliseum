@@ -1,4 +1,5 @@
 ﻿using AbstractPlayer;
+using ColiseumWebApp;
 using DbLib;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -6,6 +7,7 @@ using DeckShuffler;
 using ElonLib;
 using ExperimentWorker;
 using MarkLib;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using SandboxLib;
 
@@ -20,25 +22,10 @@ namespace ColiseumTask
 
         private static IHostBuilder CreateHostBuilder(string[] args)
         {
-            var action = " ";
-            switch (args[0])
-            {
-                case "generate":
-                {
-                    action = "generate";
-                    break;
-                }
-                case "use":
-                {
-                    action = "use";
-                    break;
-                }
-                default:
-                {
-                    Console.WriteLine("Not enough arguments!");
-                    break;
-                }
-            }
+            if(args[0] == "")
+                Console.WriteLine("Not enough args!");
+            
+            var action = args[0];
 
             return Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
@@ -50,9 +37,29 @@ namespace ColiseumTask
                     services.AddScoped<Player, Elon>();
                     services.AddScoped<Player, Mark>();
                     services.AddScoped<IPlayerAsker, PlayerAsker>();
+                    services.AddScoped<IRabbitPlayerAsker, RabbitPlayerAsker>();
                     services.AddDbContextFactory<DeckDbContext>(options => options.UseSqlite($"Data Source=decks.db"));
                     services.AddScoped<IReaderWriter, ReaderWriter>();
+                    services.AddMassTransit(x =>
+                    {
+                        x.UsingRabbitMq((ctx, cfg) =>
+                        {
+                            cfg.Host("localhost", "/", h =>
+                            {
+                                h.Username("rmuser");
+                                h.Password("rmpassword");
+                            });
+                            
+                            cfg.ConfigureEndpoints(ctx);
+                        });
+                    });
                 });
         }
-    }    
+    }
+
+    /*public class Config
+    {
+        public string Type { get; set; }
+        public 
+    }*/
 }

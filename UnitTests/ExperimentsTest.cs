@@ -47,18 +47,19 @@ public class ExperimentsTest
     }
 
     [Test]
-    public void TestShuffle()
+    public async Task TestShuffle()
     {
         var sandbox = new Sandbox(
             _deckShufflerMoq.Object,
             new [] {_markMock.Object, _elonMock.Object},
             _readerWriter,
             new PlayerAsker(),
+            null,
             Mock.Of<ILogger<Sandbox>>()
             );
 
         var deck = new Deck();
-        sandbox.DoOneExperiment(deck);
+        await sandbox.DoOneExperiment(deck, 1);
 
         var cards = deck.GetCardsArray();
         _deckShufflerMoq.Verify(shuffler => shuffler.Shuffle(ref cards), Times.Once);
@@ -72,6 +73,7 @@ public class ExperimentsTest
             new [] {_markMock.Object, _elonMock.Object},
             _readerWriter,
             new PlayerAsker(),
+            null,
             Mock.Of<ILogger<Sandbox>>()
             );
 
